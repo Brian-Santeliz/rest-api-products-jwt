@@ -1,15 +1,15 @@
 const request = require("supertest");
 const app = require("../../build/index");
-
+const user = {
+  nombre: "ejemplo",
+  email: "mai3l@mail.com",
+  password: "123",
+};
 describe("Testingto to the route /almacen/registro", () => {
   it("Debe mandar un 201", (done) => {
     request(app)
       .post("/almacen/registro")
-      .send({
-        nombre: "ejemplo",
-        email: "mai3l@mail.com",
-        password: "123",
-      })
+      .send(user)
       .set("Accept", "/json/")
       .expect(201)
       .end((e) => {
@@ -31,5 +31,14 @@ describe("Testingto to the route /almacen/registro", () => {
 });
 
 describe("Testing to the route /almacen/login", () => {
-  it("Debe manda un ");
+  it("Debe manda un 200 y un msg de login", (done) => {
+    request(app)
+      .post("/almacen/login")
+      .send(user)
+      .set("Accept", "/json/")
+      .expect(200)
+      .end((error) => {
+        error ? done(error) : done();
+      });
+  });
 });
