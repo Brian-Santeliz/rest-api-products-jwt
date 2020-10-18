@@ -7,7 +7,7 @@
     "start": "node build/index.js",
     "build": "babel src --out-dir build",
     "dev": "nodemon src/ --exec babel-node",
-    "test":"mocha src/test/"
+    "test":"mocha src/test/ --exit"
   },
   "keywords": [],
   "author": "",

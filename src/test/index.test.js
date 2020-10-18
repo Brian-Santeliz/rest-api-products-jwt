@@ -1,33 +1,35 @@
 const request = require("supertest");
 const app = require("../../build/index");
 
-describe("Test api failded", () => {
-  it("Respond with 400 Register", (done) => {
+describe("Testingto to the route /almacen/registro", () => {
+  it("Debe mandar un 201", (done) => {
     request(app)
-      .get("/almacen")
-      .set("Content-Type", "/json/")
-      .expect(401)
+      .post("/almacen/registro")
+      .send({
+        nombre: "ejemplo",
+        email: "mai3l@mail.com",
+        password: "123",
+      })
+      .set("Accept", "/json/")
+      .expect(201)
       .end((e) => {
         if (e) return done(e);
         done();
       });
   });
-  it("Respond with 500 Register", (done) => {
+
+  it("Debe mandar un 200", (done) => {
     request(app)
-      .post("/almacen/registro")
-      .expect("Content-Type", "/json/")
-      .expect(520, done());
-  });
-  it("Respond with 500 Login Router", (done) => {
-    request(app)
-      .post("/almacen/login")
-      .expect("Content-Type", "/json/")
-      .expect(502, done());
+      .get("/almacen/registro")
+      .set("Content-Type", "/json/")
+      .expect(200)
+      .end((error) => {
+        if (error) return done(error);
+        done();
+      });
   });
 });
-it("test", (done) => {
-  request(app)
-    .delete("/almacen/344")
-    .expect("Content-Type", "/json/")
-    .expect(420, done());
+
+describe("Testing to the route /almacen/login", () => {
+  it("Debe manda un ");
 });
