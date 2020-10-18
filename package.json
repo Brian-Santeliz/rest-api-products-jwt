@@ -1,0 +1,35 @@
+{
+  "name": "actividad-4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build/index.js",
+    "build": "babel src --out-dir build",
+    "dev": "nodemon src/ --exec babel-node",
+    "test":"mocha src/test/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/node": "^7.10.1",
+    "@babel/polyfill": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "morgan": "^1.10.0",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^5.0.0"
+  }
+}
