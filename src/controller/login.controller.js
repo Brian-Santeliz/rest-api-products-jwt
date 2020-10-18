@@ -1,7 +1,7 @@
 import Usuario from "../models/Usuario";
 import jwt from "jsonwebtoken";
-
-class Login {
+import Registro from "./registro.controller";
+class Login extends Registro {
   async loginControllerPost(req, res) {
     try {
       const { email, password } = req.body;
