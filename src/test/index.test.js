@@ -6,7 +6,7 @@ const user = {
   password: process.env.PASSWORD,
 };
 const product = {
-  nombre: "Laptop Hp 2",
+  nombre: "Laptop Hp 2WW2",
   especificaciones: "Laptop I5 HP",
   precio: "300",
   area: "Laptops",
@@ -85,7 +85,7 @@ describe("Testing to the route /almacen", () => {
   });
   it("Debe responder con status 200 /almacen/:id", (done) => {
     Request(app)
-      .get(`/almacen/${process.env.MONGO_ID}`)
+      .get(`/almacen/${process.env.MONGO_ID_GET}`)
       .set("Accept", "/json/")
       .set("almacen-auth", process.env.TOKEN)
       .expect(200)
@@ -138,7 +138,7 @@ describe("Testing to the route /almacen", () => {
   });
   it("Debe responder con status 201  PUT /almacen/:id", (done) => {
     Request(app)
-      .put(`/almacen/${process.env.MONGO_ID}`)
+      .put(`/almacen/${process.env.MONGO_ID_GET}`)
       .set("Accept", "/json/")
       .set("almacen-auth", process.env.TOKEN)
       .send(productUpdate)
@@ -191,7 +191,7 @@ describe("Testing to the route /almacen", () => {
   });
   it("Debe responder con status 200  DELETE /almacen/:id", (done) => {
     Request(app)
-      .delete(`/almacen/${process.env.MONGO_ID}`)
+      .delete(`/almacen/${process.env.MONGO_ID_DELETE}`)
       .set("Accept", "/json/")
       .set("almacen-auth", process.env.TOKEN)
       .expect(200)
